@@ -1,0 +1,17 @@
+sistema de facturacion de un supermercado
+
+Diccionarios: clientes, productos, proveedores, ventas
+
+
+
+
+
+clientes = {id_cliente: [nombre completo, dni, direccion, localidad, codigo postal, telefono, mail, activo]
+            id_cliente: [nombre completo, dni, direccion, localidad, codigo postal, telefono, mail, activo}
+productos = {id producto:[nombre, cantidad, precio unitario, costo, id_proveedor, activo]}
+proveedores = {id_proveedor: [cuit, razon social, telefono, mail, direccion, activo]}
+formas_pago = {id_pago: "efectivo"}
+-- para estos tres tenes cuatro operaciones: ingresar datos nuevos, consultar, modificar y eliminar (cambiar el estado de true o false en campo activo)
+
+ventas = {id_ticket: [dni, fecha, hora, {id_producto: [cantidad, precio_unitario]}, total, forma_pago]}
+
