@@ -16,21 +16,17 @@ def ingreso_cliente():
     # --[Ingreso de datos]--
      listem = []
      print("\nSistema de Facturacio del Supermercado.\n\nMenu Agregar nuevo cliente.")
-     documento = raw_input("\n\tNumero de D.N.I: ")              # P. N° 1
-     documento = validate_integer(documento)
+     documento = raw_input("\n\tNumero de D.N.I: ")              # P. N° 1vb  
      documento = validate_int_range(documento, 8)
      for id in clientes.keys():
           if documento != id:     
                nombre = raw_input("\n\tNombre Completo: ")       # P. N° 0
-               
                dirrecion = raw_input("\n\tDireccion: ")          # P. N° 2   
-               
                localidad = raw_input("\n\tLocalidad: ")          # P. N° 3
-               
                cod_postal = raw_input("\n\tCodigo Postal: ")     # P. N° 4
-               
+               cod_postal = validate_integer(cod_postal)
                nro_tell = raw_input("\n\tNumero de Telefono: ")  # P. N° 5
-               
+               nro_tell = validate_int_range(nro_tell, 12)
                email = raw_input("\n\tCorreo Electronico: ")     # P. N° 6
                # --[Guardado de datos]--
                listem.append[nombre]

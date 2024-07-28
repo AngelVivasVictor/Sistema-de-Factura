@@ -13,6 +13,19 @@ def validate_integer(opcion):
             loop = True
     return opcion
 
+def validating_strings(dato):
+    loop = True
+    while loop:
+        try:
+            dato = str(dato) 
+            loop = False
+        except ValueError:
+            print ("\n\n\tERROR. Debe ingresar sólo CARACTERES correspondientes.")
+            dato = raw_input("\n\n\t\tIngrese nuevamente el dato solicitado: ")
+            loop = True
+    return dato  
+
+
 #  Función que valida, que el valor ingresado pertenezca a un rango de valores que estará determinado por las variables start y end
 def validate_range(opcion, start, end):
     while opcion < start or opcion > end:
@@ -21,17 +34,19 @@ def validate_range(opcion, start, end):
         opcion = raw_input("\n\n\t\tIngrese nuevamente una opción: ")
         opcion = validate_integer(opcion)
     return opcion
+
 # Función que valida, que el valor ingresado pertenezca a un rango de limite de digitos
-def validate_int_range(documento, limite):
-    while not (limite <= len(str(documento)) <= limite):
+def validate_int_range(dato, limite):
+    while not (limite <= len(str(dato)) <= limite):
         print("\n\n\tERROR. Debe ingresar sólo valores VÁLIDOS.")
         print("\n\n\tLos valores deben estar comprendidos entre  el rango de "+ str(limite) + " Digitos.")
-        documento = raw_input("\n\n\t\tIngrese nuevamente una opción: ")
+        dato = raw_input("\n\n\t\tIngrese nuevamente el dato solicitado: ")
         try:
-            documento = int(documento)
+            dato = validate_integer(dato)
         except ValueError:
-            print("\n\n\tERROR. Debe ingresar sólo valores numéricos.")
-    return documento
+            print("\n\n\tERROR. Debe ingresar sólo valores VÁLIDOS.")
+            dato = raw_input("\n\n\t\tIngrese nuevamente el dato solicitado: ")
+    return dato
 
 #  Función que valida la existencia de un archivo
 def validating_existence_file(file_name):
