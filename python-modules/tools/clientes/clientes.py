@@ -1,51 +1,70 @@
 # -*- coding: utf-8 -*-
+
+# ---------------------------Modulos Importados---------------------------
 import sys
 sys.path.append("python-modules")
 
 from tools.validate.validate import *
 from tools.view.view import *
-
+# ------------------------------------------------------------------------
 # Diccionario global para almacenar los clientes
 validating_existence_file("clientes.dat")
 clientes = loading_file_into_memory("clientes.dat")
 
+# ---------------------------Fun. Agregar Cliente---------------------------
 def ingreso_cliente():
-    # Ingreso de datos
+    # --[Ingreso de datos]--
      listem = []
      print("\nSistema de Facturacio del Supermercado.\n\nMenu Agregar nuevo cliente.")
-     dato = raw_input("\n\tNombre Completo: ") # dato N° 0
-     listem.append(dato)
-     dato = raw_input("\n\tNumero de D.N.I: ") # dato N° 1
-     dato = int(dato)
-     listem.append(dato)
-     dato = raw_input("\n\tDireccion: ") # dato N° 2
-     listem.append(dato)
-     dato = raw_input("\n\tLocalidad: ") # dato N° 3
-     listem.append(dato)
-     dato = raw_input("\n\tCodigo Postal: ") # dato N° 4
-     dato = int(dato)
-     listem.append(dato)
-     dato = raw_input("\n\tNumero de Telefono: ") # dato N° 5
-     dato = int(dato)
-     listem.append(dato)
-     dato = raw_input("\n\tCorreo Electronico: ") # dato N° 6
-     listem.append(dato)
-     dato = True # dato N° 7 
-     listem.append(dato) 
-     
-# Usar el DNI como ID único para el cliente
-     id_cliente = listem[1]
-
-    # Agregar el nuevo cliente al diccionario
-     clientes[id_cliente] = listem
-    
-    # Mostrar el diccionario de clientes
-     print(clientes)
-    
-     # Guardar los cambios en el archivo
-     saving_changes_to_the_file("clientes.dat", clientes)
-     print("\nCliente agregado con éxito!")
-
+     documento = raw_input("\n\tNumero de D.N.I: ")              # P. N° 1
+     documento = validate_integer(documento)
+     documento = validate_int_range(documento, 8)
+     for id in clientes.keys():
+          if documento != id:     
+               nombre = raw_input("\n\tNombre Completo: ")       # P. N° 0
+               
+               dirrecion = raw_input("\n\tDireccion: ")          # P. N° 2   
+               
+               localidad = raw_input("\n\tLocalidad: ")          # P. N° 3
+               
+               cod_postal = raw_input("\n\tCodigo Postal: ")     # P. N° 4
+               
+               nro_tell = raw_input("\n\tNumero de Telefono: ")  # P. N° 5
+               
+               email = raw_input("\n\tCorreo Electronico: ")     # P. N° 6
+               # --[Guardado de datos]--
+               listem.append[nombre]
+               listem.append[documento]
+               listem.append[dirrecion]
+               listem.append[localidad]
+               listem.append[cod_postal]
+               listem.append[nro_tell]
+               listem.append[email]
+               listem.append[True]
+               # --[Agregar el cliente al diccionario]--
+               clientes[documento] = listem
+               #saving_changes_to_the_file("clientes.dat", clientes)
+               print("\nCliente agregado con éxito!")
+          # --[Control de usuario existente]--
+          if documento == id:
+               print("\nEl usuario con el DNI: , " + str(documento) + ". Esta ya registado.")
+               print("\nSeleccione una opcion:")
+               print("\n1.Visualizar el estado del usuario.")
+               print("\n2.Consultar los datos del DNI.")
+               print("\n3.Ingresar otro usuario nuevo.")
+               print("\n4.Volver al menu principal.")
+               opcion = raw_input(": ")
+               opcion = int(opcion)
+               if opcion == 1:
+                    activacion_cliente()
+               elif opcion == 2:
+                    consulta_cliente()
+               elif opcion == 3:
+                    ingreso_cliente()
+               elif opcion == 4:
+                    #importar modulo
+                    print("salio con exito")
+# ------------------------------------------------------------------------
 
 def consulta_cliente():
      dni_consulta = raw_input("Ingrese DNI del cliente a consultar:")
@@ -188,4 +207,4 @@ def activacion_cliente():
      print(clientes)
      
 print(clientes)
-activacion_cliente()
+ingreso_cliente()
