@@ -1,17 +1,46 @@
 (dp0
 I45681858
 (lp1
-S'Victor'
+S'Angel Vivas'
 p2
 aI45681858
-aS'Lopez'
+aS'Buchardo'
 p3
 aS'Moreno'
 p4
-aS'1234'
+aI1744
+aI1155710021
+aS'av42979@gmail.com'
 p5
-aI1138866357
-aS'av42969@gmail.com'
-p6
+aI01
+asI45896123
+(lp6
+S'Gusto Lopez'
+p7
+aI45896123
+aS'San luis'
+p8
+aS'Merlo'
+p9
+aI1232
+aS'1155870066'
+p10
+aS'aderk@hotmail.com'
+p11
+aI01
+asI12900290
+(lp12
+S'Nerio Victor'
+p13
+aI12900290
+aS'San oro'
+p14
+aS'Marco paz'
+p15
+aI4456
+aS'1133662247'
+p16
+aS'delser@gmail.com'
+p17
 aI01
 as.

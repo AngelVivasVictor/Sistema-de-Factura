@@ -13,6 +13,7 @@ def validate_integer(opcion):
             loop = True
     return opcion
 
+#  Función que valida, que el valor ingresado sea strings
 def validating_strings(dato):
     loop = True
     while loop:
@@ -35,17 +36,14 @@ def validate_range(opcion, start, end):
         opcion = validate_integer(opcion)
     return opcion
 
+
 # Función que valida, que el valor ingresado pertenezca a un rango de limite de digitos
-def validate_int_range(dato, limite):
-    while not (limite <= len(str(dato)) <= limite):
+def validate_length_int(dato, limit):
+    while not (limit <= len(str(dato)) and len(str(dato)) <= limit):
         print("\n\n\tERROR. Debe ingresar sólo valores VÁLIDOS.")
-        print("\n\n\tLos valores deben estar comprendidos entre  el rango de "+ str(limite) + " Digitos.")
+        print("\n\n\tLos valores deben estar comprendidos entre  el rango de "+ str(limit) + " Digitos.")
         dato = raw_input("\n\n\t\tIngrese nuevamente el dato solicitado: ")
-        try:
-            dato = validate_integer(dato)
-        except ValueError:
-            print("\n\n\tERROR. Debe ingresar sólo valores VÁLIDOS.")
-            dato = raw_input("\n\n\t\tIngrese nuevamente el dato solicitado: ")
+        dato = validate_integer(dato)
     return dato
 
 #  Función que valida la existencia de un archivo
